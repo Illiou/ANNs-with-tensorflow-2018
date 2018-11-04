@@ -4,8 +4,7 @@
 ### First Layer:
 Drive:
 
-$$
-\begin{align}
+\begin{align*}
 \vec{d}^{(1)} &= W^{(1)} \cdot \vec{x} + \vec{b} \\
 &=  \begin{pmatrix}
 -2 & 3 \\
@@ -20,8 +19,7 @@ $$
 2 \cdot 2 + 1 \cdot 3 + 0 
 \end{pmatrix} \\
 &= \begin{pmatrix} 5 \\ 7 \end{pmatrix}
-\end{align}
-$$
+\end{align*}
 
 Activation:
 $$
@@ -54,34 +52,34 @@ $$
 
 #### b) Derive the activation function:
 
-$$\sigma(x)=x^2 \\
-\sigma'(x)=2x
-$$
+\begin{align*}
+\sigma(x)&=x^2 \\
+\sigma'(x)&=2x
+\end{align*}
+
 
 #### c) Compute the partial derivatives of the loss function with regard to each weight, using the backpropagation alogrithm:
 
 General rule *(see lecture slides)*:
-$$
+\begin{gather*}
 \frac{\partial L(\vec{t}; \vec{y})}{\partial w_{ji}^{(K)}} = \delta_j^{(K)} \cdot a_i^{(K-1)} \\
 \text{where:} \\
 \delta_j^{(K)} = \begin{cases} 
 -(t_j - y_j) \cdot \sigma'(net_j^{(K)}) , & \text{if } K=L+1 \\
 \sum\limits_k \delta_k^{(K+1)} \cdot w_{kj}^{(K+1)} \cdot \sigma'(net_j^{(K)}), &  \text{otherwise}
 \end{cases}
-$$
+\end{gather*}
 
 Precalculations:
-$$
-\begin{align}
+\begin{align*}
 \delta_1^{(2)} &= -(t_1-y_1) \cdot \sigma'(net_1^{(2)}) = -(3 - 1) \cdot 2(-1) = -2 \cdot -2 = 4 \\
 \delta_1^{(1)} &= \sum_{k=1}^1 \delta_k^{(2)} \cdot w_{k1}^{(2)} \cdot \sigma'(net_1^{(1)})= \delta_1^{(2)} \cdot w_{11}^{(2)} \cdot 2(5) = 4 \cdot (-2) \cdot 10 = -80 \\
 \delta_2^{(1)} &= \sum_{k=1}^1 \delta_k^{(2)} \cdot w_{k2}^{(2)} \cdot \sigma'(net_2^{(1)})= \delta_1^{(2)} \cdot w_{12}^{(2)} \cdot 2(7) = 4 \cdot 1 \cdot 14  = 56
-\end{align}
-$$
+\end{align*}
+
 
 Partial derivatives of the loss function with regard to each weight:
-$$
-\begin{align}
+\begin{align*}
 % w11 2
 \frac{\partial L(\vec{t};\vec{y})}{\partial w_{11}^{(2)}} &= \delta_1^{(2)} \cdot a_1^{(1)} = 4 \cdot 25 = 100 \\
 % w12 2
@@ -94,8 +92,8 @@ $$
 \frac{\partial L(\vec{t};\vec{y})}{\partial w_{21}^{(1)}} &= \delta_2^{(1)} \cdot a_1^{(0)} = 56 \cdot 2 = 112\\
 % w22 1
 \frac{\partial L(\vec{t};\vec{y})}{\partial w_{22}^{(1)}} &= \delta_2^{(1)} \cdot a_2^{(0)} = 56 \cdot 3 = 168 \\
-\end{align}
-$$
+\end{align*}
+
 
 #### d) Compute the weight update for each weight
  
