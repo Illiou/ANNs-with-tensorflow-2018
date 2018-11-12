@@ -3,6 +3,7 @@
 summaries/
 *.ckpt*
 *checkpoint
+cifar-10-python/
 
 # ------------------
 # Byte-compiled / optimized / DLL files
