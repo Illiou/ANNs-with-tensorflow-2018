@@ -1,5 +1,8 @@
 # own
 *-ubyte
+summaries/
+*.ckpt*
+*checkpoint
 
 # ------------------
 # Byte-compiled / optimized / DLL files
