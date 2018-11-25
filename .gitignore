@@ -1,6 +1,8 @@
 # own
 *-ubyte
 summaries/
+checkpoints/
+SVHN/
 *.ckpt*
 *checkpoint
 cifar-10-python/
